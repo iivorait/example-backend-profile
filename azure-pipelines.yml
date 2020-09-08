@@ -107,7 +107,7 @@ stages:
       - task: Docker@2
         displayName: Push image to Docker hub
         inputs:
-          containerRegistry: Docker hub upload
+          containerRegistry: Docker hub upload-example-backend-profile
           repository: helsinki/$(ImageName)
           command: push
           tags: |
