@@ -124,5 +124,5 @@ stages:
       - task: oc-cmd@2
         displayName: Add OC tag to latest image
         inputs:
-          openshiftService: 'Azure OpenShift'
+          openshiftService: 'Azure OpenShift-example-backend-profile'
           cmd: 'tag docker.io/helsinki/example-backend:$(tag) example-backend-backend:latest'
