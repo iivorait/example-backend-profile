@@ -39,14 +39,6 @@ stages:
         dockerComposeFile: '$(Build.SourcesDirectory)/docker-compose.yml'
         includeSourceTags: true
         includeLatestTag: true
-    - task: Docker@2
-      displayName: Build APM enhanced image
-      inputs:
-        repository: '$(ImageName)'
-        command: build
-        tags: 'apm'
-        Dockerfile: deploy/elastic_apm_injection/Dockerfile
-        arguments: --build-arg BASE_IMAGE=$(ImageName)
     - script: |
         docker tag example-backend_dev:latest example-backend:dev_latest
         docker rmi example-backend_dev
