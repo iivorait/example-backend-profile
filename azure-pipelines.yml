@@ -40,8 +40,8 @@ stages:
         includeSourceTags: true
         includeLatestTag: true
     - script: |
-        docker tag example-backend-profile_server:latest example-backend-profile:latest
-        docker rmi example-backend-profile_server
+        docker tag cityofhelsinkiexamplebackendprofile_server:latest example-backend-profile:latest
+        docker rmi cityofhelsinkiexamplebackendprofile_server
       displayName:
     - task: Docker@2
       displayName: Save example-backend image repository to TAR
