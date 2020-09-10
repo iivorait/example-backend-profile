@@ -40,8 +40,8 @@ stages:
         includeSourceTags: true
         includeLatestTag: true
     - script: |
-        docker tag example-backend_dev:latest example-backend:dev_latest
-        docker rmi example-backend_dev
+        docker tag example-backend-profile_server:latest example-backend-profile:latest
+        docker rmi example-backend-profile_server
       displayName:
     - task: Docker@2
       displayName: Save example-backend image repository to TAR
@@ -68,8 +68,8 @@ stages:
           command: load
           arguments: '--input $(Pipeline.Workspace)/$(ImageName).image.tar'
       - script: |
-          docker tag example-backend:dev_latest example-backend_dev:latest
-        displayName: Add example-backend_dev name back to image for docker-compose
+          docker tag example-backend-prfile:latest example-backend-profile_server:latest
+        displayName: Add example-backend-profile_server name back to image for docker-compose
       - task: DockerCompose@0
         displayName: Run tests
         inputs:
