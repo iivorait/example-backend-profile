@@ -68,13 +68,14 @@ stages:
           command: load
           arguments: '--input $(Pipeline.Workspace)/$(ImageName).image.tar'
       - script: |
-          docker tag example-backend-prfile:latest example-backend-profile_server:latest
+          docker tag example-backend-profile:latest example-backend-profile_server:latest
         displayName: Add example-backend-profile_server name back to image for docker-compose
-      - task: DockerCompose@0
-        displayName: Run tests
-        inputs:
-          dockerComposeCommand: run dev test
-          dockerComposeFile: '$(Build.SourcesDirectory)/docker-compose.yml'
+# Not implemented here yet
+#      - task: DockerCompose@0
+#        displayName: Run tests
+#        inputs:
+#          dockerComposeCommand: run server test
+#          dockerComposeFile: '$(Build.SourcesDirectory)/docker-compose.yml'
 - stage: Push
   displayName: Push
   jobs:
